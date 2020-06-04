@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.btn {
+  background-color: #808080;
+  color: black;
+  border : solid 1px #000 ;
+  width: 150px;
+  height:28px;
+}
+
+.table {
+	left:50px;
+	position: absolute;
+}
+
+.btn-return {
+	margin-top:106px;
+	margin-left:285px;
+}
+
+.btn-ok {
+	position: absolute;
+	margin-left:105px;
+	margin-top:130px;
+}
+
+
+.categoryColor {
+	color:#9932CC;
+}
+
+.categorylist{
+	text-align: left;
+}
+
+
+.message {
+	left:20px;
+	position: relative;
+}
