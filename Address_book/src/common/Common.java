@@ -56,8 +56,8 @@ public static ResultSet getCategoryAll() {
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		connect = DriverManager.getConnection(
-		"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-		"root","user");
+		"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+		"root","");
 		String getQuery = ("SELECT categoryid FROM category ORDER BY categoryid ASC");
 		PreparedStatement ps = connect.prepareStatement(getQuery);
 		stmt = connect.createStatement();
@@ -87,8 +87,8 @@ public static String getCategoryName(String id) {
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		connect = DriverManager.getConnection(
-		"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-		"root","user");
+		"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+		"root","");
 		String getQuery = ("SELECT categoryname FROM category WHERE categoryid = ?");
 		PreparedStatement ps = connect.prepareStatement(getQuery);
 

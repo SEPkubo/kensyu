@@ -32,8 +32,8 @@ public class DeleteCommitBL extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect = DriverManager.getConnection(
-			"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-			"root","user");
+			"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+			"root","");
 			String UpdQuery = ("UPDATE jyusyoroku SET delete_flg=1 WHERE id=?");
 			PreparedStatement ps = connect.prepareStatement(UpdQuery);
 

@@ -46,8 +46,8 @@ public class ListBL extends HttpServlet {
 			try {		// 検索文字列が無い場合の処理
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connect = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-				"root","user");
+				"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+				"root","");
 				CntQuery = ("SELECT COUNT(*) cnt FROM jyusyoroku,category WHERE jyusyoroku.categoryid = category.categoryid AND delete_flg=0");
 				ps = connect.prepareStatement(CntQuery);
 				rs = ps.executeQuery();
@@ -86,8 +86,8 @@ public class ListBL extends HttpServlet {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connect = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-				"root","user");
+				"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+				"root","");
 				SelectQuery = ("SELECT * FROM jyusyoroku,category WHERE jyusyoroku.categoryid = category.categoryid AND delete_flg=0 ORDER BY address ASC,tel ASC,id LIMIT ?,?");
 				ps = connect.prepareStatement(SelectQuery);
 				ps.setInt(1,limitSta);
@@ -109,8 +109,8 @@ public class ListBL extends HttpServlet {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connect = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-				"root","user");
+				"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+				"root","");
 				CntQuery = ("SELECT COUNT(*) cnt FROM jyusyoroku,category WHERE jyusyoroku.categoryid = category.categoryid AND delete_flg=0 AND address LIKE ?");
 				ps = connect.prepareStatement(CntQuery);
 				ps.setString(1,"%" + SerchName + "%");
@@ -153,8 +153,8 @@ public class ListBL extends HttpServlet {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connect = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-				"root","user");
+				"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+				"root","");
 				SelectQuery = ("SELECT * FROM jyusyoroku,category WHERE jyusyoroku.categoryid = category.categoryid AND delete_flg=0 AND address LIKE ? ORDER BY address ASC,tel ASC,id LIMIT ?,?");
 				ps = connect.prepareStatement(SelectQuery);
 				ps.setString(1,"%" + SerchName + "%");

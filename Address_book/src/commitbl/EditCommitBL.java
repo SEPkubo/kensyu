@@ -39,8 +39,8 @@ public class EditCommitBL extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connect = DriverManager.getConnection(
-			"jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=JST",
-			"root","user");
+			"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+			"root","");
 			String UpdQuery = ("UPDATE jyusyoroku SET name=?,address=?,tel=?,categoryid=? WHERE id=?");
 			PreparedStatement ps = connect.prepareStatement(UpdQuery);
 
