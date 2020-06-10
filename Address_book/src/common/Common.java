@@ -19,21 +19,40 @@ public class Common {
 		String ERRMSG_ADDRESS01 = "住所は全角40文字以内で入力してください";
 		String ERRMSG_ADDRESS02 = "住所は必須項目です";
 		String ERRMSG_TEL01 = "電話番号は「000-0000-0000」の形式で入力してください";
+		String ERRMSG_TEL02 = "電話番号は数字で入力してください";
 
-		String returnVal = null;
+
+		String tel2 = tel.replace("-", "");		// ハイフンを除外した電話番号
+		String returnVal = "";
 		Pattern pattern = Pattern.compile("^\\d{3}-\\d{4}-\\d{4}$");		// 電話番号の型判定
 		Matcher matcher = pattern.matcher(tel);
+		Pattern pattern2 = Pattern.compile("^\\d{11}$");		// 電話番号の数字判定
+		Matcher matcher2 = pattern2.matcher(tel2);
+
 		try {
-			if(name.getBytes("UTF-8").length > 40) {
-				returnVal = ERRMSG_NAME01 + "<BR>";
-			} else if (name.getBytes("UTF-8").length == 0) {
-				returnVal = ERRMSG_NAME02 + "<BR>";
-			} else if (address.getBytes("UTF-8").length > 80) {
-				returnVal = ERRMSG_ADDRESS01 + "<BR>";
-			} else if (address.getBytes("UTF-8").length == 0) {
-				returnVal = ERRMSG_ADDRESS02 + "<BR>";
-			} else if (tel.getBytes("UTF-8").length <= 0 || matcher.find() == false) {
-				returnVal = ERRMSG_TEL01 + "<BR>";
+			if(name.getBytes("Shift-JIS").length > 40) {
+				returnVal += ERRMSG_NAME01 + "<BR>";
+			}
+
+			if (name.getBytes("Shift-JIS").length == 0) {
+				returnVal += ERRMSG_NAME02 + "<BR>";
+			}
+
+			if (address.getBytes("Shift-JIS").length > 80) {
+				returnVal += ERRMSG_ADDRESS01 + "<BR>";
+			}
+
+			if (address.getBytes("Shift-JIS").length == 0) {
+				returnVal += ERRMSG_ADDRESS02 + "<BR>";
+			}
+
+			if (tel.getBytes("Shift-JIS").length > 0 && matcher.find() == false) {
+				if(matcher2.find() == false) {
+					returnVal += ERRMSG_TEL02 + "<BR>";
+				} else {
+					returnVal += ERRMSG_TEL01 + "<BR>";
+				}
+
 			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

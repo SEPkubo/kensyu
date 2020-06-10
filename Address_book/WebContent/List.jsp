@@ -80,10 +80,14 @@ if (request.getAttribute("Page") == null) {			// ListBLで一覧を取得
 			listcnt = 1;
 		}
 		while (rs.next()) {
-			tel = new StringBuilder(rs.getString("tel"))		// 電話番号のハイフン表示
-					.insert(7, '-')
-					.insert(3, '-')
-					.toString();
+			if (rs.getString("tel").getBytes("UTF-8").length == 11) {	// 電話番号が11文字か判定
+
+				tel = new StringBuilder(rs.getString("tel"))		// 電話番号のハイフン表示
+						.insert(7, '-')
+						.insert(3, '-')
+						.toString();
+
+			}
 
 			String s = "<tr><td>" + listcnt + "</td><td>" + rs.getString("name") + "</td><td><div class=listaddress onmouseover=mOver(" + cnt + ",'info1') onmouseout=mOut('info1')>" +		 // 一覧表示 hidden項目で値を保持させる
 					rs.getString("address") + "</div></td><td>" + tel + "</td><td class=categoryColor>" + Common.getCategoryName(rs.getString("categoryid"))
