@@ -80,6 +80,7 @@ if (request.getAttribute("Page") == null) {			// ListBLで一覧を取得
 			listcnt = 1;
 		}
 		while (rs.next()) {
+			tel = "";
 			if (rs.getString("tel").getBytes("UTF-8").length == 11) {	// 電話番号が11文字か判定
 
 				tel = new StringBuilder(rs.getString("tel"))		// 電話番号のハイフン表示

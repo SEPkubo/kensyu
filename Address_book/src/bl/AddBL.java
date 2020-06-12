@@ -31,7 +31,7 @@ public class AddBL extends HttpServlet {
 		request.setAttribute("tel",tel);
 		request.setAttribute("categoryid",categoryid);
 
-		if (errmsg != null) {
+		if (errmsg != "") {
 			request.setAttribute("errmsg",errmsg);
 			getServletContext().getRequestDispatcher("/Add.jsp").forward(request, response);
 		} else {
