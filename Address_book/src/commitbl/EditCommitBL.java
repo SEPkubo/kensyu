@@ -38,7 +38,6 @@ public class EditCommitBL extends HttpServlet {
 
 		if (name.equals(oldname) && address.equals(oldaddress) && tel.equals(oldtel) && categoryid.equals(oldcategoryid)) {		// どのデータも更新がなければ処理を行わない
 			getServletContext().getRequestDispatcher("/ListBL").forward(request, response);
-			System.out.println("更新を行いませんでした");
 		} else {
 
 			tel = tel.replace("-", "");			// ハイフン除外
