@@ -62,6 +62,10 @@ try {
 <h3>住所録管理システム:住所録編集</h3>
 <form action="../Address_book/EditBL" method="post">
 <input type="hidden" name="id" value=<%=id%>>
+<input type="hidden" name="oldname" value=<%=name%>>
+<input type="hidden" name="oldaddress" value=<%=address%>>
+<input type="hidden" name="oldtel" value=<%=tel%>>
+<input type="hidden" name="oldcategoryid" value=<%=categoryid%>>
 <%if (errmsg != "null") {
 out.println("<h2>" + errmsg + "</h2>");
 tel = request.getParameter("tel");

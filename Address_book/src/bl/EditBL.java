@@ -26,11 +26,21 @@ public class EditBL extends HttpServlet {
 		String categoryid = request.getParameter("categoryid");
 		String errmsg = Common.getErr(name,address,tel);
 
+		String oldname = request.getParameter("oldname");			// 更新確認用データ
+		String oldaddress = request.getParameter("oldaddress");
+		String oldtel = request.getParameter("oldtel");
+		String oldcategoryid = request.getParameter("oldcategoryid");
+
 		request.setAttribute("id",id);
 		request.setAttribute("name",name);
 		request.setAttribute("address",address);
 		request.setAttribute("tel",tel);
 		request.setAttribute("categoryid",categoryid);
+
+		request.setAttribute("oldname",oldname);	// 更新確認用データ
+		request.setAttribute("oldaddress",oldaddress);
+		request.setAttribute("oldtel",oldtel);
+		request.setAttribute("oldcategoryid",oldcategoryid);
 
 
 

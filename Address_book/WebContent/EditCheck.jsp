@@ -25,6 +25,11 @@
 <input type="hidden" name="name" value=<%=name%>>
 <input type="hidden" name="address" value=<%=address%>>
 <input type="hidden" name="tel" value=<%=tel%>>
+
+<input type="hidden" name="oldcategoryid" value=<%=request.getParameter("oldcategoryid")%>>
+<input type="hidden" name="oldname" value=<%=request.getParameter("oldname")%>>
+<input type="hidden" name="oldaddress" value=<%=request.getParameter("oldaddress")%>>
+<input type="hidden" name="oldtel" value=<%=request.getParameter("oldtel")%>>
 <div class="table">
 <table>
 	<tr><th>名前* : </th><td><%=name%></tr>

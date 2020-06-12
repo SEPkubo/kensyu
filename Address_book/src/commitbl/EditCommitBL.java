@@ -29,55 +29,72 @@ public class EditCommitBL extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String categoryid = request.getParameter("categoryid");
 
-		tel = tel.replace("-", "");			// ハイフン除外
+		String oldname = request.getParameter("oldname");		// 更新確認用データ
+		String oldaddress = request.getParameter("oldaddress");
+		String oldtel = request.getParameter("oldtel");
+		String oldcategoryid = request.getParameter("oldcategoryid");
 
 
-		Connection connect = null;
-		Statement stmt = null;
-		ResultSet rs = null;
 
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			connect = DriverManager.getConnection(
-			"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
-			"root","");
-			String UpdQuery = ("UPDATE jyusyoroku SET name=?,address=?,tel=?,categoryid=? WHERE id=?");
-			PreparedStatement ps = connect.prepareStatement(UpdQuery);
+		if (name.equals(oldname) && address.equals(oldaddress) && tel.equals(oldtel) && categoryid.equals(oldcategoryid)) {		// どのデータも更新がなければ処理を行わない
+			getServletContext().getRequestDispatcher("/ListBL").forward(request, response);
+			System.out.println("更新を行いませんでした");
+		} else {
 
-			ps.setString(1,name);
-			ps.setString(2,address);
-			ps.setString(3,tel);
-			ps.setInt(4,Integer.parseInt(categoryid));
-			ps.setInt(5,id);
-			ps.executeUpdate();
+			tel = tel.replace("-", "");			// ハイフン除外
 
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException sqlEx) {
+			Connection connect = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				connect = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
+				"root","");
+				String UpdQuery = ("UPDATE jyusyoroku SET name=?,address=?,tel=?,categoryid=? WHERE id=?");
+				PreparedStatement ps = connect.prepareStatement(UpdQuery);
+
+				ps.setString(1,name);
+				ps.setString(2,address);
+				ps.setString(3,tel);
+				ps.setInt(4,Integer.parseInt(categoryid));
+				ps.setInt(5,id);
+				ps.executeUpdate();
+
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException sqlEx) {
+					}
+				}
+				if (stmt != null) {
+					try {
+						stmt.close();
+					} catch (SQLException sqlEx) {
+					}
+				}
+				if (connect != null) {
+					try {
+						connect.close();
+					} catch (SQLException sqlEX) {
+
+					}
 				}
 			}
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (SQLException sqlEx) {
-				}
-			}
-			if (connect != null) {
-				try {
-					connect.close();
-				} catch (SQLException sqlEX) {
 
-				}
-			}
+
+			getServletContext().getRequestDispatcher("/ListBL").forward(request, response);
+
+
+
+
 		}
-
-
-		getServletContext().getRequestDispatcher("/ListBL").forward(request, response);
 
 
 			 }
