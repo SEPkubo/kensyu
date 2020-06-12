@@ -66,7 +66,7 @@ out.println("<h2>" + errmsg + "</h2>");
 	<tr><th>名前* : </th><td><input type="text" name="name" value=<%=name%>></td></tr>
 	<tr><th>住所* : </th><td><input type="text" class="address-txt" name="address" value=<%=address%>></td></tr>
 	<tr><th>電話番号 : </th><td><input type="text" name="tel" value=<%=tel%>></td></tr>
-	<tr><th class="categoryColor">カテゴリ : </th><td><select class="category" name=categoryid><%
+	<tr><th>カテゴリ : </th><td><select class="category" name=categoryid><%
 
 	if(categoryid == null || categoryid == ""){
 		categoryid = "-1";

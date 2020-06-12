@@ -91,7 +91,7 @@ if (request.getAttribute("Page") == null) {			// ListBLで一覧を取得
 			}
 
 			String s = "<tr><td>" + listcnt + "</td><td>" + rs.getString("name") + "</td><td><div class=listaddress onmouseover=mOver(" + cnt + ",'info1') onmouseout=mOut('info1')>" +		 // 一覧表示 hidden項目で値を保持させる
-					rs.getString("address") + "</div></td><td>" + tel + "</td><td class=categoryColor>" + Common.getCategoryName(rs.getString("categoryid"))
+					rs.getString("address") + "</div></td><td>" + tel + "</td><td>" + Common.getCategoryName(rs.getString("categoryid"))
 					+ "</td><td bgcolor=#808080><form action=../Address_book/Edit.jsp method=post><input type=hidden name=id value=" + String.valueOf(rs.getInt("id")) +		// 編集画面のボタン・保持する値
 					"><input type=hidden name=name value=" + rs.getString("name") + "><input type=hidden name=address value=" + rs.getString("address") +
 					"><input type=hidden name=number value=" + rs.getString("tel") + "><input type=hidden name=categoryid value=" + rs.getString("categoryid") +
@@ -220,7 +220,7 @@ if (request.getAttribute("SerchName") != null){
             <th class="name">名前</th>
             <th class="address">住所</th>
             <th class="tel">電話番号</th>
-            <th class="categoryColor">カテゴリ</th>
+            <th>カテゴリ</th>
             <th colspan="2">&emsp;&emsp;</th>
 
         </tr>

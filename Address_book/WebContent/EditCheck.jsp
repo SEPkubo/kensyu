@@ -35,7 +35,7 @@
 	<tr><th>名前* : </th><td><%=name%></tr>
 	<tr><th>住所* : </th><td><%=address%></td></tr>
 	<tr><th>電話番号 : </th><td><%=tel%></td></tr>
-	<tr><th class="categoryColor">カテゴリ:</th><td class="categoryColor"><%=Common.getCategoryName(categoryid)%></td></tr>
+	<tr><th>カテゴリ:</th><td><%=Common.getCategoryName(categoryid)%></td></tr>
 
 </table>
 </div>

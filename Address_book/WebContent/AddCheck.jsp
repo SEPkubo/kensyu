@@ -26,7 +26,7 @@ String categoryid = request.getParameter("categoryid");
 	<tr><th>名前* : </th><td><%=request.getAttribute("name")%></td></tr>
 	<tr><th>住所* : </th><td><%=request.getAttribute("address")%></td></tr>
 	<tr><th>電話番号 : </th><td><%=request.getAttribute("tel")%></td></tr>
-	<tr><th class="categoryColor">カテゴリ:</th><td class="categoryColor"><%=Common.getCategoryName(categoryid)%></td></tr>
+	<tr><th>カテゴリ:</th><td><%=Common.getCategoryName(categoryid)%></td></tr>
 
 </table>
 </div>
