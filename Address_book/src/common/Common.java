@@ -108,10 +108,10 @@ public static String getCategoryName(String id) {
 		connect = DriverManager.getConnection(
 		"jdbc:mysql://localhost:3306/kubo?characterEncoding=UTF-8&serverTimezone=JST",
 		"root","");
-		String getQuery = ("SELECT categoryname FROM category WHERE categoryid = ?");
+		String getQuery = ("SELECT categoryname FROM category WHERE categoryid = ?");	// ?の部分にidが入る
 		PreparedStatement ps = connect.prepareStatement(getQuery);
 
-		ps.setString(1,id);
+		ps.setString(1,id);		// 1つ目の?に入れるもの
 		rs = ps.executeQuery();
 		rs.next();
 		categoryname = rs.getString(1);

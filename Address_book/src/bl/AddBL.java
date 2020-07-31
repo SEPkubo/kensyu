@@ -22,7 +22,8 @@ public class AddBL extends HttpServlet {
 		String address = request.getParameter("address");
 		String tel = request.getParameter("tel");
 		String categoryid = request.getParameter("categoryid");
-		String errmsg = Common.getErr(name,address,tel);
+
+		String errmsg = Common.getErr(name,address,tel);		// エラーメッセージ
 
 
 
